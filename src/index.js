@@ -4,6 +4,10 @@ const path = require('path');
 const exphbs = require('express-handlebars');
 
 const route = require('./routes/index.js')
+const db = require('./config/connectDB/index.js');
+
+// connect DB
+db.connect();
 
 // route initial
 route(app);
