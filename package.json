@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "nodemon --inspect src/index.js",
+    "watch": "node-sass --watch src/resources/scss/app.scss src/public/css/app.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "van huy",
@@ -14,6 +15,9 @@
     "express-handlebars": "^5.1.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.20"
+    "node-sass": "^8.0.0",
+    "nodemon": "^2.0.20",
+    "sass": "^1.58.1",
+    "script": "^0.0.12"
   }
 }
