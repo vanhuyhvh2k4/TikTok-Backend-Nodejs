@@ -17,9 +17,7 @@
   },
   "devDependencies": {
     "mongoose": "^6.9.1",
-    "node-sass": "^8.0.0",
     "nodemon": "^2.0.20",
-    "sass": "^1.58.1",
     "script": "^0.0.12"
   }
 }

@@ -8,7 +8,7 @@ const User = new Schema({
     fullName: String,
     nickName: String,
     avatar: String,
-
+    tick: Boolean,
   });
 
 module.exports = mongoose.model('User', User)

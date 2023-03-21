@@ -1,12 +1,8 @@
-const newsRouter = require('./news.js')
+const newsRouter = require('./users.js')
 
 function route (app) {
-
-    app.get('/', function (req, res) {
-        res.render('home')
-      })
       
-      app.use('/news', newsRouter);
+      app.use('/api', newsRouter);
 }
 
 module.exports = route;

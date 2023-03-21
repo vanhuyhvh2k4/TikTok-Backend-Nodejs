@@ -2,8 +2,9 @@ const User = require('../models/User.js');
 
 class NewController {
 
-    // [GET] /news
+    // [GET] /api/users
     index(req, res, next) {
+        const type = req.query.type;
         const keyword = req.query.q;
         const regex = new RegExp(`.*${keyword}`, 'i');
 
@@ -19,12 +20,17 @@ class NewController {
                 })
                 .catch(next);
         }
+        else if (type == 'less') {
+            User.aggregate([
+                { $sample: { size: 10 } },
+              ])
+              .then((users) => {
+                const responseData = { data: users };
+                res.json(responseData)
+              })
+        }
+        
 
-    }
-
-    // [GET] /news/:slug
-    show(req, res) {
-        res.send('news details');
     }
 }
 
