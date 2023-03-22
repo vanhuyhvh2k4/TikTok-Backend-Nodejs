@@ -8,7 +8,7 @@ const route = require('./routes/index.js')
 const db = require('./config/connectDB/index.js');
 
 const corsOptions = {
-    origin: 'http://localhost:3001', // Replace with your own domain
+    origin: 'http://localhost:3000', // Replace with your own domain
     optionsSuccessStatus: 200 // Some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 
