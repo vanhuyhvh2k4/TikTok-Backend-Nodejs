@@ -3,7 +3,8 @@ const app = express();
 const path = require('path');
 const exphbs = require('express-handlebars');
 const cors = require('cors');
-
+const dotenv = require('dotenv');
+var cookieParser = require('cookie-parser')
 const route = require('./routes/index.js')
 const db = require('./config/connectDB/index.js');
 
@@ -11,6 +12,15 @@ const corsOptions = {
     origin: 'http://localhost:3000', // Replace with your own domain
     optionsSuccessStatus: 200 // Some legacy browsers (IE11, various SmartTVs) choke on 204
 }
+
+dotenv.config();
+
+app.use(cookieParser())
+
+app.use(express.urlencoded({
+    extended: true
+}));
+app.use(express.json());
 
 app.use(cors(corsOptions));
 

@@ -5,7 +5,6 @@ class SearchController {
 
     // [GET] /api/search/find?q='keyword'
     search(req, res, next) {
-        const type = req.query.type;
         const search_keyword = req.query.q;
         const regex = new RegExp(`.*${search_keyword}`, 'i');
 

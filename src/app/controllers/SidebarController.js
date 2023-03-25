@@ -10,7 +10,12 @@ class AsideController {
             .limit(10)
             .then((keyword) => {
                 if (keyword.length) {
-                    const responseData = { data: keyword };
+                    const sendData = keyword.map(({
+                        keyword_name,
+                        keyword_type,
+                    }) => 
+                    ({ keyword_name, keyword_type }));
+                    const responseData = { data: sendData };
                     res.status(200).json(responseData)
                 }
                 else {
