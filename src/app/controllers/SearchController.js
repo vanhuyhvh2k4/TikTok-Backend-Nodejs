@@ -4,7 +4,7 @@ const Keyword = require('../models/Keyword.js');
 class SearchController {
 
     // [GET] /api/search/find?q='keyword'
-    search(req, res, next) {
+    search(req, res) {
         const search_keyword = req.query.q;
         const regex = new RegExp(`.*${search_keyword}`, 'i');
 
@@ -42,7 +42,7 @@ class SearchController {
                         res.status(404).json(responseData);
                     }
                 })
-                .catch(next)
+                .catch(err => res.status(500).send(err))
         }
     }
 }

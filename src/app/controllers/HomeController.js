@@ -3,7 +3,7 @@ const Video = require('../models/Video.js');
 class SiteController {
 
     //[GET] /api/home/video
-    home(req, res, next) {
+    home(req, res) {
         Video.find()
             .lean()
             .populate({
@@ -37,7 +37,9 @@ class SiteController {
                     res.status(404).json(responseData);
                 }
             })
-            .catch(next);
+            .catch(error => {
+                res.status(500).send(error);
+            });
     }
 }
 
