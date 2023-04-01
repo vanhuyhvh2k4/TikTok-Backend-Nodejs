@@ -8,7 +8,7 @@ const jwtUtils = {
             user_id: user._id,
             email: user.email,
         }
-        return jwt.sign(payload, accessKey, {expiresIn: '30s'});
+        return jwt.sign(payload, accessKey);
     },
     generateRefreshToken: (user) => {
         const payload = {

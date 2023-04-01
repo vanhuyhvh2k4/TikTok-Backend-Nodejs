@@ -9,6 +9,7 @@ const VeriFyToken = {
             jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
                 if (err) {
                     res.status(403).json('Token is not valid.');
+                    return;
                 }
                 req.user = user;
                 next();

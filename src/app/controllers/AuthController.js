@@ -15,8 +15,8 @@ class AuthController {
                     const refreshToken = jwtUtils.generateRefreshToken(user) ;
                     res.cookie('refresh_token', refreshToken, {
                         httpOnly: true,
-                        secure: false,
-                        sameSite: "strict",
+                        secure: true,
+                        sameSite: true,
                         path: '/',
                     });
                     res.status(200).json({ data: user ,access_token: accessToken});
@@ -24,7 +24,7 @@ class AuthController {
                 else {
                     const responseData = { message: 'Login Failed' };
                     res.status(400).json(responseData);
-                }
+                } 
             })
             .catch((error) => {
                 res.status(500).send(error);
@@ -46,6 +46,34 @@ class AuthController {
             })
             .catch((error) => {
                 res.status(500).send(error);
+            })
+    }
+
+    logout (req,res) {
+        res.status(204).json({ message: 'logged out' });
+    }
+
+    checkUser (req, res) {
+        User.findOne({ user_name: req.body.userName }).lean()
+            .then(user => {
+                if (user) {
+                    res.status(400).json({ message: 'User name is already in use '});
+                }
+                else {
+                    res.status(200).json({ message: 'ok'})
+                }
+            })
+    }
+
+    checkEmail (req, res) {
+        User.findOne({ email: req.body.email }).lean()
+            .then (user => {
+                if (user) {
+                    res.status(400).json({ message: 'Email is already in use' });
+                }
+                else {
+                    res.status(200).json({ message: 'ok'})
+                }
             })
     }
 

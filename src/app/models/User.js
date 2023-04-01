@@ -6,7 +6,7 @@ const User = new Schema({
   user_name: {type: String, require: true, maxlength: 100},
   password: {type: String, require: true, maxlength: 100},
   email: {type: String, require: true, maxlength: 200},
-  avatar_url: {type: String, maxlength: 5000, default: 'https://th.bing.com/th?id=OIP.jixXH_Els1MXBRmKFdMQPAHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2'},
+  avatar_url: {type: String, maxlength: 5000, default: 'https://sf16-sg.tiktokcdn.com/obj/eden-sg/uvkuhyieh7lpqpbj/pwa/512x512.png'},
   is_tick: {type: Boolean, require: true, default: false},
   bio: {type: String, maxlength: 500},
   first_name: {type: String, maxlength: 100},
